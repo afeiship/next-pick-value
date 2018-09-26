@@ -1,6 +1,6 @@
 (function () {
 
-  var global = global || this || self || window;
+  var global = global || window || self || Function('return this')();
   var nx = global.nx || require('next-js-core2');
   var NONE = 'NONE';
 
@@ -11,8 +11,8 @@
         current = item;
         return nx.BREAKER;
       }
-    })
-    return item ? item.value : NONE;
+    });
+    return current ? current.value : NONE;
   };
 
 
