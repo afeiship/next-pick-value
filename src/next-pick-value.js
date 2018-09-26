@@ -2,7 +2,6 @@
 
   var global = global || window || self || Function('return this')();
   var nx = global.nx || require('next-js-core2');
-  var NONE = 'NONE';
 
   nx.pickValue = function (inList, inValue) {
     var current = null;
@@ -12,9 +11,8 @@
         return nx.BREAKER;
       }
     });
-    return current ? current.value : NONE;
+    return current ? current.value : null;
   };
-
 
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = nx.pickValue;
